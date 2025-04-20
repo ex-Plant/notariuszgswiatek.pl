@@ -1,0 +1,121 @@
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 1rem;
+    /*margin-right: 1rem;*/
+    /*margin-left: 1rem;*/
+    /* Updated background and text color for neutral dark mode */
+    background: #18181b; /* Neutral dark grey (zinc-900) */
+    color: #f4f4f5; /* Neutral light grey (zinc-100) */
+}
+
+header {
+    /* Updated header background */
+    background: #27272a; /* Slightly lighter neutral grey (zinc-800) */
+    color: #f4f4f5;
+    padding: 1.5rem 0 1.5rem 0;
+    text-align: center;
+    border-bottom: 1px solid #3f3f46; /* Neutral grey border (zinc-700) */
+    border-radius: 0.75rem;
+
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 1.1rem;
+    /* Updated subtitle color */
+    color: #a1a1aa; /* Muted neutral grey (zinc-400) */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    /* Updated card section background and styling */
+    background: #27272a; /* Card background (zinc-800) */
+    border-radius: 0.75rem;
+    border: 1px solid #3f3f46; /* Card border (zinc-700) */
+    box-shadow: none;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+}
+
+.contact-card, .address-card {
+    /*flex: 1 1 250px;*/
+    min-width: 250px;
+}
+
+.contact-card h2, .address-card h2, .hours-section h2, .bank-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    /* Updated heading color */
+    color: #f4f4f5; /* Main foreground (zinc-100) */
+    font-weight: 600;
+    border-bottom: 1px solid #3f3f46; /* Subtle separator (zinc-700) */
+    padding-bottom: 1rem;
+}
+
+/* Target specific links within cards */
+.contact-card a, .address-card a {
+    color: #a1a1aa; /* Muted foreground (zinc-400) */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-card a:hover, .address-card a:hover, .map-link:hover {
+    color: #f4f4f5; /* Brighter foreground (zinc-100) on hover */
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #a1a1aa; /* Muted foreground (zinc-400) */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.hours-section, .bank-section {
+    /* Updated background and styling */
+    background: #27272a; /* Card background (zinc-800) */
+    border-radius: 0.75rem;
+    border: 1px solid #3f3f46; /* Card border (zinc-700) */
+    box-shadow: none;
+    margin-top: 2rem;
+    padding: 1.5rem;
+}
+
+.note {
+    /* Updated note color */
+    color: #a1a1aa; /* Muted foreground (zinc-400) */
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+footer {
+    /* Updated footer style */
+    background: #18181b; /* Main background (zinc-900) */
+    color: #a1a1aa; /* Muted foreground (zinc-400) */
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid #3f3f46; /* Subtle border (zinc-700) */
+}
+
+@media (max-width: 700px) {
+    .contact-section {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .container {
+        padding: 1rem;
+    }
+}
