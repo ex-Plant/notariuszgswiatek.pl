@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kancelaria Notarialna Pach & Świątek — Notariusz Gabriela Świątek, Kraków",
+  title: "Notariusz Gabriela Świątek — Kancelaria Notarialna, Kraków",
   description:
     "Kancelaria notarialna w Krakowie, ul. Urzędnicza 20/4. Notariusz Gabriela Świątek. Czynności notarialne, akty notarialne, depozyty.",
 };

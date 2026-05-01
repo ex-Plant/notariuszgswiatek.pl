@@ -64,6 +64,8 @@ export function MapEmbed({ theme, className = "", caption, zoom = 16 }: Props) {
         attributionControl: true,
       });
 
+      map.attributionControl.setPrefix(false);
+
       const tiles = TILES[theme];
 
       L.tileLayer(tiles.base, {
