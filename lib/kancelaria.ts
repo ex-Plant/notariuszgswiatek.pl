@@ -30,4 +30,8 @@ export const VARIANTS = [
   { slug: "pieczec", label: "Pieczęć", caption: "Notary seal · champagne, rotating coat" },
   { slug: "marmur", label: "Marmur", caption: "Marble Dark" },
   { slug: "marmur-jasny", label: "Marmur jasny", caption: "Marble Light — same composition, inverted palette" },
+  { slug: "akwarela", label: "Akwarela", caption: "Watercolor · centered thin logo, ink-wash bleed" },
+  { slug: "akord", label: "Akord", caption: "Vertical masthead · brand running bottom→top on left edge" },
+  { slug: "gilosz", label: "Gilosz", caption: "Guilloché · banknote-style security pattern ribbon" },
+  { slug: "sygnatura", label: "Sygnatura", caption: "Signature · animated SVG ink autograph" },
 ] as const;
