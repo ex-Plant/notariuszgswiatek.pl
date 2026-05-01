@@ -8,7 +8,7 @@ export default function Page() {
     <main className="min-h-dvh bg-[#F8F6F1] text-zinc-950 selection:bg-[#9F2B3A] selection:text-[#F8F6F1] flex-1">
       <nav className="max-w-[1400px] mx-auto px-6 md:px-12 pt-8 flex items-center justify-between">
         <Link
-          href="/"
+          href="/warianty"
           className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-zinc-500 hover:text-zinc-950 transition-colors"
         >
           <ArrowLeft size={14} weight="bold" /> Galeria
@@ -47,7 +47,9 @@ export default function Page() {
               {KANCELARIA.address.postal} {KANCELARIA.address.city}
             </p>
             <a
-              href={`https://maps.google.com/?q=${encodeURIComponent(KANCELARIA.mapsQuery)}`}
+              href={`https://maps.google.com/?q=${encodeURIComponent(
+                KANCELARIA.mapsQuery
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-1.5 text-sm border-b border-[#9F2B3A] text-[#9F2B3A] hover:opacity-70 transition-opacity"

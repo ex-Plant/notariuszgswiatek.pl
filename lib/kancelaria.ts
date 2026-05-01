@@ -25,7 +25,9 @@ export const KANCELARIA = {
 export const VARIANTS = [
   { slug: "zaufanie", label: "Zaufanie", caption: "Trust · Private-bank restraint, real map" },
   { slug: "edytorska", label: "Edytorska", caption: "Editorial Quiet" },
+  { slug: "klasyczna", label: "Klasyczna", caption: "Classical serif · Cormorant + forest" },
+  { slug: "paragraf", label: "Paragraf", caption: "Legal-act layout · §-numbered, drop cap, marginalia" },
+  { slug: "pieczec", label: "Pieczęć", caption: "Notary seal · champagne, rotating coat" },
   { slug: "marmur", label: "Marmur", caption: "Marble Dark" },
   { slug: "marmur-jasny", label: "Marmur jasny", caption: "Marble Light — same composition, inverted palette" },
-  { slug: "oryginalna", label: "Oryginalna", caption: "Original layout (index.html)" },
 ] as const;

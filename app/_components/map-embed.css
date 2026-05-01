@@ -25,8 +25,12 @@
   width: 100%;
 }
 
-.map-embed .leaflet-tile-pane {
+.map-embed .map-embed__tile-base {
   filter: var(--tile-filter, saturate(0.85) contrast(1.02));
+}
+
+.map-embed .map-embed__tile-labels {
+  filter: var(--label-filter, none);
 }
 
 .map-embed .leaflet-control-attribution {
@@ -171,9 +175,27 @@
   --caption-fg: rgba(31, 26, 18, 0.5);
 }
 
+.map-embed[data-theme="forest"] {
+  --map-bg: #ece6d8;
+  --tile-filter: saturate(0.78) contrast(1.02) brightness(1.0);
+  --frame-border: rgba(31, 58, 43, 0.18);
+  --marker-fill: #1f3a2b;
+  --marker-ring: #f2ede0;
+  --halo: rgba(31, 58, 43, 0.22);
+  --zoom-bg: #f2ede0;
+  --zoom-bg-hover: #e8e1cf;
+  --zoom-fg: #15140e;
+  --zoom-border: rgba(31, 58, 43, 0.18);
+  --attrib-bg: rgba(242, 237, 224, 0.85);
+  --attrib-fg: rgba(21, 20, 14, 0.55);
+  --attrib-fg-link: rgba(31, 58, 43, 0.85);
+  --caption-fg: rgba(21, 20, 14, 0.5);
+}
+
 .map-embed[data-theme="legacy-dark"] {
   --map-bg: #18181b;
-  --tile-filter: saturate(0.8) contrast(1.05) brightness(0.92);
+  --tile-filter: none;
+  --label-filter: none;
   --frame-border: #3f3f46;
   --marker-fill: #f4f4f5;
   --marker-ring: #27272a;

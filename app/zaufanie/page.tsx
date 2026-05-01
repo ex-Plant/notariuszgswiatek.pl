@@ -9,7 +9,7 @@ export default function Page() {
       <div className="border-b border-[#0F1B2D]/12">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-3 flex items-center justify-between">
           <Link
-            href="/"
+            href="/warianty"
             className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] text-[#0F1B2D]/60 hover:text-[#0F1B2D] transition-colors"
           >
             <ArrowLeft size={12} weight="bold" /> Galeria

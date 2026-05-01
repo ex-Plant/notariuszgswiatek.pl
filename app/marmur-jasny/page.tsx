@@ -19,7 +19,7 @@ export default function Page() {
 
       <nav className="max-w-[1400px] mx-auto px-6 md:px-12 pt-8 flex items-center justify-between relative">
         <Link
-          href="/"
+          href="/warianty"
           className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-[#1F1A12]/55 hover:text-[#8C6B3D] transition-colors"
         >
           <ArrowLeft size={14} weight="bold" /> Galeria

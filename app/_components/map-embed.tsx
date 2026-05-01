@@ -5,7 +5,13 @@ import "leaflet/dist/leaflet.css";
 import "./map-embed.css";
 import { KANCELARIA } from "@/lib/kancelaria";
 
-type MapTheme = "paper" | "bone" | "dark" | "champagne" | "legacy-dark";
+type MapTheme =
+  | "paper"
+  | "bone"
+  | "dark"
+  | "champagne"
+  | "legacy-dark"
+  | "forest";
 
 type Props = {
   theme: MapTheme;
@@ -14,21 +20,30 @@ type Props = {
   zoom?: number;
 };
 
-const TILES: Record<MapTheme, string> = {
-  paper: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-  bone: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-  dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-  champagne: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-  "legacy-dark":
-    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+type TileSet = { base: string; attribution: string };
+
+const CARTO_LIGHT_BASE =
+  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+const CARTO_DARK_BASE =
+  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
+const STADIA_DARK =
+  "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png";
+
+const ATTR_CARTO =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>';
+const ATTR_STADIA =
+  '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+
+const TILES: Record<MapTheme, TileSet> = {
+  paper: { base: CARTO_LIGHT_BASE, attribution: ATTR_CARTO },
+  bone: { base: CARTO_LIGHT_BASE, attribution: ATTR_CARTO },
+  dark: { base: CARTO_DARK_BASE, attribution: ATTR_CARTO },
+  champagne: { base: CARTO_LIGHT_BASE, attribution: ATTR_CARTO },
+  "legacy-dark": { base: STADIA_DARK, attribution: ATTR_STADIA },
+  forest: { base: CARTO_LIGHT_BASE, attribution: ATTR_CARTO },
 };
 
-export function MapEmbed({
-  theme,
-  className = "",
-  caption,
-  zoom = 16,
-}: Props) {
+export function MapEmbed({ theme, className = "", caption, zoom = 16 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,11 +64,13 @@ export function MapEmbed({
         attributionControl: true,
       });
 
-      L.tileLayer(TILES[theme], {
+      const tiles = TILES[theme];
+
+      L.tileLayer(tiles.base, {
         subdomains: "abcd",
-        maxZoom: 19,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        maxZoom: 20,
+        attribution: tiles.attribution,
+        className: "map-embed__tile-base",
       }).addTo(map);
 
       const markerIcon = L.divIcon({

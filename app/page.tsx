@@ -1,61 +1,98 @@
-import Link from "next/link";
-import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import { KANCELARIA, VARIANTS } from "@/lib/kancelaria";
+import { Montserrat } from "next/font/google";
+import { KANCELARIA } from "@/lib/kancelaria";
+
+const montserrat = Montserrat({
+  weight: ["400", "600"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
 
 export default function Page() {
   return (
-    <main className="min-h-dvh bg-[#F8F6F1] text-zinc-950 flex-1 flex flex-col">
-      <header className="max-w-[1400px] mx-auto px-6 md:px-12 pt-16 md:pt-24 pb-12 w-full">
-        <p className="font-mono text-xs uppercase tracking-[0.22em] text-zinc-500">
-          Pięć wariantów · maj 2026
-        </p>
-        <h1 className="mt-6 text-4xl md:text-7xl tracking-tighter leading-[0.95] max-w-4xl">
-          Kancelaria Notarialna
-          <br />
-          <span className="text-zinc-500">Pach & Świątek</span>
-        </h1>
-        <p className="mt-8 text-base md:text-lg text-zinc-600 max-w-[58ch] leading-relaxed">
-          Eksperymenty kierunków wizualnych dla strony notariuszki Gabrieli
-          Świątek. Każdy slug to oddzielna estetyka, ten sam zestaw informacji.
-        </p>
-      </header>
+    <main
+      className={`${montserrat.className} min-h-dvh bg-[#18181b] text-[#f4f4f5] flex-1 m-4`}
+    >
+      <section className="container max-w-[900px] mx-auto p-6 mt-8 bg-[#27272a] border border-[#3f3f46] rounded-xl flex flex-wrap justify-between gap-8 relative z-[2]">
+        <div className="address-card min-w-[250px]">
+          <h2 className="text-[1.1rem] mb-3 font-semibold text-[#f4f4f5] border-b border-[#3f3f46] pb-4">
+            {KANCELARIA.notary} – Notariusz
+          </h2>
+          <p className="leading-relaxed">
+            {KANCELARIA.name}
+            <br />
+            {KANCELARIA.legalForm}
+          </p>
+          <p className="mt-4 leading-relaxed">
+            {KANCELARIA.address.street} ({KANCELARIA.address.floor})
+            <br />
+            {KANCELARIA.address.postal} {KANCELARIA.address.city}
+          </p>
+          <a
+            href={`https://maps.google.com/?q=${encodeURIComponent(KANCELARIA.mapsQuery)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block font-semibold text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors"
+          >
+            Otwórz mapę
+          </a>
+        </div>
 
-      <ul className="max-w-[1400px] mx-auto px-6 md:px-12 pb-24 w-full divide-y divide-zinc-200 flex-1">
-        {VARIANTS.map((v, i) => (
-          <li key={v.slug}>
-            <Link
-              href={`/${v.slug}`}
-              className="group flex items-baseline justify-between gap-8 py-8 md:py-10 transition-[padding] duration-300 hover:pl-4"
+        <div className="contact-card min-w-[250px]">
+          <h2 className="text-[1.1rem] mb-3 font-semibold text-[#f4f4f5] border-b border-[#3f3f46] pb-4">
+            Kontakt
+          </h2>
+          <p className="leading-relaxed">
+            <strong>E-mail:</strong>{" "}
+            <a
+              href={`mailto:${KANCELARIA.email}`}
+              className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors"
             >
-              <div className="flex items-baseline gap-6 md:gap-10">
-                <span className="font-mono text-xs text-zinc-400 tabular-nums">
-                  0{i + 1}
-                </span>
-                <div>
-                  <h2 className="text-2xl md:text-4xl tracking-tight">
-                    {v.label}
-                  </h2>
-                  <p className="mt-2 text-sm md:text-base text-zinc-500">
-                    {v.caption}
-                  </p>
-                </div>
-              </div>
-              <ArrowUpRight
-                size={28}
-                weight="thin"
-                className="shrink-0 transition-transform duration-300 group-hover:rotate-12"
-              />
-            </Link>
-          </li>
-        ))}
-      </ul>
+              {KANCELARIA.email}
+            </a>
+          </p>
+          <p className="leading-relaxed">
+            <strong>Telefon:</strong>{" "}
+            <a
+              href={`tel:${KANCELARIA.phone.tel}`}
+              className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors"
+            >
+              {KANCELARIA.phone.display}
+            </a>
+          </p>
+          <p className="leading-relaxed">
+            <strong>Komórka:</strong>{" "}
+            <a
+              href={`tel:${KANCELARIA.mobile.tel}`}
+              className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors"
+            >
+              {KANCELARIA.mobile.display}
+            </a>
+          </p>
+        </div>
+      </section>
 
-      <footer className="border-t border-zinc-200 py-8 max-w-[1400px] mx-auto px-6 md:px-12 w-full flex flex-wrap gap-x-8 gap-y-2 justify-between text-xs font-mono text-zinc-500 uppercase tracking-[0.18em]">
-        <span>
-          {KANCELARIA.address.street}, {KANCELARIA.address.city}
-        </span>
-        <span>{KANCELARIA.phone.display}</span>
-      </footer>
+      <section className="container max-w-[900px] mx-auto p-6 mt-8 bg-[#27272a] border border-[#3f3f46] rounded-xl">
+        <h2 className="text-[1.1rem] mb-3 font-semibold text-[#f4f4f5] border-b border-[#3f3f46] pb-4">
+          Godziny otwarcia kancelarii
+        </h2>
+        <p>poniedziałek – piątek {KANCELARIA.hours.time.replace(/\s/g, " ")}</p>
+        <p className="text-[#a1a1aa] text-[0.95rem] mt-2">
+          {KANCELARIA.hoursNote}
+        </p>
+      </section>
+
+      <section className="container max-w-[900px] mx-auto p-6 mt-8 bg-[#27272a] border border-[#3f3f46] rounded-xl">
+        <h2 className="text-[1.1rem] mb-3 font-semibold text-[#f4f4f5] border-b border-[#3f3f46] pb-4">
+          Numer rachunku bankowego
+        </h2>
+        <p>{KANCELARIA.bank.operating}</p>
+        <h2 className="text-[1.1rem] mt-6 mb-3 font-semibold text-[#f4f4f5] border-b border-[#3f3f46] pb-4">
+          Numer rachunku depozytowego
+        </h2>
+        <p>{KANCELARIA.bank.deposit}</p>
+      </section>
+
+      <div className="h-12" />
     </main>
   );
 }
